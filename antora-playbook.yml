@@ -13,6 +13,9 @@ content:
 asciidoc:
   attributes:
     experimental: true
+  extensions:
+    - ./lib/remote-include-processor.js
+    - ./lib/tab-block.js
 ui:
   bundle:
     url: https://github.com/rampadc/antora-x-carbon/releases/download/main-ea5b12b/ui-bundle.zip
