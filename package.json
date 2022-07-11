@@ -3,14 +3,28 @@
   "version": "1.0.0",
   "description": "Carbon Design System applied to Antora docs gen tool",
   "main": "index.js",
+  "watch": {
+    "dev:build": {
+      "patterns": [
+        "documentation"
+      ],
+      "extensions": "adoc",
+      "quiet": true
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "run-p dev:watch dev:serve",
+    "dev:watch": "npm-watch",
+    "dev:build": "npx antora --fetch dev.yml",
+    "dev:serve": "browser-sync start --server 'gh-pages' --watch"
   },
   "author": "Cong Nguyen",
   "license": "Apache-2.0",
   "devDependencies": {
     "@antora/cli": "3.0.2",
-    "@antora/site-generator": "3.0.2"
+    "@antora/site-generator": "3.0.2",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.11.0"
   },
   "dependencies": {
     "@antora/lunr-extension": "^1.0.0-alpha.8"
